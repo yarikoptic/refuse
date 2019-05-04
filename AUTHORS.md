@@ -10,5 +10,5 @@ Contributors, in alphabetical order:
 
 `refuse` is a fork of `fusepy`. `fusepy` was developed and maintained, among others, by:
 
-- Giorgos Verigakis (2008 - 2012)
-- Terence Honles (2012 - 2018)
+- Copyright (c) 2008-2012 Giorgos Verigakis
+- Copyright (c) 2012-2018 Terence Honles
