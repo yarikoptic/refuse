@@ -4,12 +4,14 @@ from __future__ import with_statement
 
 from setuptools import setup
 
+_version_ = '0.0.1' # BUMP VERSION HERE!
+
 with open('README') as readme:
     documentation = readme.read()
 
 setup(
     name = 'fusepy',
-    version = '3.0.1',
+    version = _version_,
 
     description = 'Simple ctypes bindings for FUSE',
     long_description = documentation,
