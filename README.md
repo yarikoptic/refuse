@@ -21,7 +21,7 @@ Longer term goals might include:
 
 ## Project status
 
-This project has **ALPHA** status.
+This project has **ALPHA** status. IT IS CURRENTLY UNTESTED AND CAN NOT BE INSTALLED.
 
 ## Installation
 
@@ -30,3 +30,4 @@ This project has **ALPHA** status.
 * Linux (i386, x86_64, PPC, arm64, MIPS)
 * Mac OS X (Intel, PowerPC)
 * FreeBSD (i386, amd64)
+* Windows (?)
