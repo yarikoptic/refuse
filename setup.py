@@ -29,6 +29,7 @@ specific language governing rights and limitations under the License.
 # IMPORT
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+import os
 from setuptools import find_packages, setup
 
 
@@ -45,8 +46,9 @@ confirmed_python_versions = [
 	for x in '3.7'.split(' ') # TODO confirm older versions
 	]
 
-with open('README.md') as readme:
-    long_description = readme.read()
+# Fetch readme file
+with open(os.path.join(os.path.dirname(__file__), 'README.md'), 'r') as f:
+	long_description = f.read()
 
 setup(
     name = 'refuse',
