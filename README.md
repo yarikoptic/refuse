@@ -30,13 +30,14 @@ This project has **ALPHA** status. IT IS CURRENTLY UNTESTED AND CAN NOT BE INSTA
 
 ## Installation
 
-`refuse` requires `libfuse` 2.6 or later (2.9 is highly recommended) and theoretically runs on:
+`refuse` requires `libfuse` >= 2.6 (2.9 is highly recommended), `FUSE for macOS` or `WinFsp`. It (theoretically) runs on:
 
 * Linux (i386, x86_64, PPC, arm64, MIPS)
 * Mac OS X (Intel, PowerPC)
 * FreeBSD (i386, amd64)
 * OpenBSD (all architectures)
 * Windows (?)
+* Windows/Cygwin (?)
 
 ## Porting a project from `fusepy` to `refuse`
 
