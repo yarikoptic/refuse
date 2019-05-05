@@ -42,13 +42,26 @@ _version_ = '0.0.1'
 
 # List all versions of Python which are supported
 confirmed_python_versions = [
-	('Programming Language :: Python :: %s' % x)
-	for x in '3.7'.split(' ') # TODO confirm older versions
-	]
+    ('Programming Language :: Python :: %s' % x)
+    for x in '3.7'.split(' ') # TODO confirm older versions
+    ]
 
 # Fetch readme file
 with open(os.path.join(os.path.dirname(__file__), 'README.md'), 'r') as f:
-	long_description = f.read()
+    long_description = f.read()
+
+# Development dependencies
+development_deps_list = [
+    'coverage',
+    'pytest',
+    'python-language-server',
+    'setuptools',
+    'Sphinx',
+    'sphinx_rtd_theme',
+    'twine',
+    'wheel'
+    ]
+
 
 setup(
     name = 'refuse',
@@ -60,10 +73,12 @@ setup(
     author = 'Sebastian M. Ernst',
     author_email = 'ernst@pleiszenburg.de',
     url = 'https://github.com/pleiszenburg/refuse',
+    download_url = 'https://github.com/pleiszenburg/refuse/archive/v%s.tar.gz' % _version_,
     license = 'ISC',
     keywords = ['fuse', 'libfuse'],
     include_package_data = True,
     install_requires = [],
+    extras_require = {'dev': development_deps_list},
     zip_safe = False,
     classifiers = [
         'Development Status :: 3 - Alpha',
