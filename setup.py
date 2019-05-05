@@ -55,7 +55,7 @@ setup(
     packages = find_packages('src'),
     package_dir = {'': 'src'},
     version = _version_,
-    description = 'Simple ctypes bindings for libfuse / FUSE',
+    description = 'Simple cross-plattform ctypes bindings for libfuse / FUSE for macOS / WinFsp',
     long_description = long_description,
     author = 'Sebastian M. Ernst',
     author_email = 'ernst@pleiszenburg.de',
