@@ -663,7 +663,7 @@ def time_of_timespec(ts, use_ns=False):
     if use_ns:
         return ts.tv_sec * 10 ** 9 + ts.tv_nsec
     else:
-        return ts.tv_sec + ts.tv_nsec / 1E9
+        return ts.tv_sec + ts.tv_nsec * 1E-9
 
 def set_st_attrs(st, attrs, use_ns=False):
     for key, val in attrs.items():
