@@ -36,3 +36,7 @@ This project has **ALPHA** status. IT IS CURRENTLY UNTESTED AND CAN NOT BE INSTA
 * Mac OS X (Intel, PowerPC)
 * FreeBSD (i386, amd64)
 * Windows (?)
+
+## Porting a project from `fusepy` to `refuse`
+
+[See documentation](https://github.com/pleiszenburg/refuse/docs/porting.md).
