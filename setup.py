@@ -31,7 +31,19 @@ specific language governing rights and limitations under the License.
 
 from setuptools import find_packages, setup
 
-_version_ = '0.0.1' # BUMP VERSION HERE!
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# SETUP
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# BUMP VERSION HERE!
+_version_ = '0.0.1'
+
+# List all versions of Python which are supported
+confirmed_python_versions = [
+	('Programming Language :: Python :: %s' % x)
+	for x in '3.7'.split(' ') # TODO confirm older versions
+	]
 
 with open('README.md') as readme:
     long_description = readme.read()
@@ -61,6 +73,7 @@ setup(
         'Operating System :: POSIX :: Linux',
         'Operating System :: Unix',
         'Programming Language :: Python :: 3',
+		] + confirmed_python_versions + [
         'Topic :: System :: Filesystems',
         ]
     )
