@@ -1,6 +1,6 @@
-# refuse
+![refuse](http://www.pleiszenburg.de/refuse_logo.png)
 
-## Synopsis
+# Synopsis
 
 `refuse` is a Python module that provides a simple cross-platform interface to:
 
@@ -24,11 +24,11 @@ Longer term goals might include:
 
 **If you have a pending pull request against `fusepy` that you would like to see included into `refuse` please open an issue here.**
 
-## Project status
+# Project status
 
 This project has **ALPHA** status. IT IS CURRENTLY UNTESTED AND CAN NOT BE INSTALLED.
 
-## Installation
+# Installation
 
 `refuse` requires `libfuse` >= 2.6 (2.9 is highly recommended), `FUSE for macOS` or `WinFsp`. It (theoretically) runs on:
 
@@ -39,11 +39,11 @@ This project has **ALPHA** status. IT IS CURRENTLY UNTESTED AND CAN NOT BE INSTA
 * Windows (?)
 * Windows/Cygwin (?)
 
-## Porting a project from `fusepy` to `refuse`
+# Porting a project from `fusepy` to `refuse`
 
 [See documentation](https://github.com/pleiszenburg/refuse/blob/master/docs/porting.md).
 
-## Miscellaneous
+# Miscellaneous
 
 - [Authors](https://github.com/pleiszenburg/refuse/blob/master/AUTHORS.md) (credit where credit is due)
 - [Change log](https://github.com/pleiszenburg/refuse/blob/master/CHANGES.md) (release history)
