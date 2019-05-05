@@ -39,6 +39,11 @@ from signal import signal, SIGINT, SIG_DFL, SIGTERM
 from stat import S_IFDIR
 from traceback import print_exc
 
+from time import time
+try:
+	from time import time_ns
+except ImportError:
+	time_ns = lambda: int(time() * 1e9)
 
 try:
     from functools import partial
@@ -659,6 +664,21 @@ if _system == "OpenBSD":
 else:
     fuse_main_real =_libfuse.fuse_main_real
 
+UTIME_OMIT = (1 << 30) - 2
+UTIME_NOW = (1 << 30) - 1
+
+def is_utime_now(ts):
+    return ts.tv_sec == 0 and ts.tv_nsec == UTIME_NOW
+
+def is_utime_omit(ts):
+    return ts.tv_sec == 0 and ts.tv_nsec == UTIME_OMIT
+
+def get_now(use_ns=False):
+    if use_ns:
+        return time_ns()
+    else:
+        return time()
+
 def time_of_timespec(ts, use_ns=False):
     if use_ns:
         return ts.tv_sec * 10 ** 9 + ts.tv_nsec
@@ -1138,6 +1158,18 @@ class FUSE(object):
         if buf:
             atime = time_of_timespec(buf.contents.actime, use_ns=self.use_ns)
             mtime = time_of_timespec(buf.contents.modtime, use_ns=self.use_ns)
+            if self.use_ns:
+                now = get_now()
+                if is_utime_now(atime_ts):
+                    atime = now
+                elif is_utime_omit(atime_ts):
+                    atime = None
+                if is_utime_now(mtime_ts):
+                    mtime = now
+                elif is_utime_omit(mtime_ts):
+                    mtime = None
+            else:
+                pass # TODO ... this is the old, bad behavior
             times = (atime, mtime)
         else:
             times = None
