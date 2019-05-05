@@ -8,7 +8,25 @@ Contributors, in alphabetical order:
 
 ## Legacy
 
-`refuse` is a fork of `fusepy`. `fusepy` was developed and maintained, among others, by:
+`refuse` is a fork of `fusepy`. `fusepy` was developed and maintained by (in alphabetical order):
 
-- Copyright (c) 2008-2012 Giorgos Verigakis
-- Copyright (c) 2012-2018 Terence Honles
+- Adam Manzanares / @nmtadam
+- Anton Ovchinnikov / @tonyo
+- Ben Hagen / @cbenhagen
+- Bill Zissimopoulos / @billziss-gh
+- Ethan Estrada / @eestrada
+- Giorgos Verigakis / @verigak (`fusepy` core developer 2008-2012)
+- Greg Pearson / @steinbeck65
+- @JaikrishnaTS
+- Jakub Wilk / @jwilk
+- Johannes Buchner / @JohannesBuchner
+- @lpzummer
+- Nick Coutsos / @nickcoutsos
+- Niko Fink / @N-Coder
+- Nikolaus Rath / @nikratio
+- Nir Soffer / @nirs
+- Paulo Costa / @paulo-raca
+- Rian Hunter / @rianhunter
+- @rncry
+- Sam Thursfield / @ssssam
+- Terence D. Honles / @terencehonles (`fusepy` maintainer 2012-2018)
