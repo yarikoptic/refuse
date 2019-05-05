@@ -35,7 +35,7 @@ This project has **ALPHA** status. IT IS CURRENTLY UNTESTED AND CAN NOT BE INSTA
 * Linux (i386, x86_64, PPC, arm64, MIPS)
 * Mac OS X (Intel, PowerPC)
 * FreeBSD (i386, amd64)
-* OpenBSD (all architectures)
+* OpenBSD (all architectures, high level bindings only)
 * Windows (?)
 * Windows/Cygwin (?)
 
