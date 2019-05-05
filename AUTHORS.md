@@ -13,7 +13,7 @@ Contributors, in alphabetical order:
 - Adam Manzanares / @nmtadam
 - Anton Ovchinnikov / @tonyo
 - Ben Hagen / @cbenhagen
-- Bill Zissimopoulos / @billziss-gh
+- Bill Zissimopoulos / @billziss-gh (Windows and Cygwin support)
 - Ethan Estrada / @eestrada
 - Giorgos Verigakis / @verigak (`fusepy` core developer 2008-2012)
 - Greg Pearson / @steinbeck65
@@ -26,7 +26,7 @@ Contributors, in alphabetical order:
 - Nikolaus Rath / @nikratio
 - Nir Soffer / @nirs
 - Paulo Costa / @paulo-raca
-- Rian Hunter / @rianhunter
+- Rian Hunter / @rianhunter (partial OpenBSD support)
 - @rncry
 - Sam Thursfield / @ssssam
 - Terence D. Honles / @terencehonles (`fusepy` maintainer 2012-2018)
