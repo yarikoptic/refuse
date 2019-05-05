@@ -39,4 +39,12 @@ This project has **ALPHA** status. IT IS CURRENTLY UNTESTED AND CAN NOT BE INSTA
 
 ## Porting a project from `fusepy` to `refuse`
 
-[See documentation](https://github.com/pleiszenburg/refuse/docs/porting.md).
+[See documentation](https://github.com/pleiszenburg/refuse/blob/master/docs/porting.md).
+
+## Miscellaneous
+
+- [Authors](https://github.com/pleiszenburg/refuse/blob/master/AUTHORS.md) (credit where credit is due)
+- [Change log](https://github.com/pleiszenburg/refuse/blob/master/CHANGES.md) (release history)
+- [Contributing](https://github.com/pleiszenburg/refuse/blob/master/CONTRIBUTING.md) (**Contributions are highly welcomed!**)
+- [Documentation](https://github.com/pleiszenburg/refuse/tree/master/docs) (mostly notes at this point)
+- [License](https://github.com/pleiszenburg/refuse/blob/master/LICENSE) (**ISCL**)
