@@ -4,7 +4,7 @@ The import logic has changed.
 
 | Old (`fusepy`) | New (`refuse`) |
 | --- | --- |
-| `import fuse` | `from refuse import fuse` |
-| `import fusell` | `from refuse import fusell` |
-| `from fuse import something` | `from refuse.fuse import something` |
-| `from fusell import something` | `from refuse.fusell import something` |
+| `import fuse` | `from refuse import high as fuse` |
+| `import fusell` | `from refuse import low as fusell` |
+| `from fuse import something` | `from refuse.high import something` |
+| `from fusell import something` | `from refuse.low import something` |

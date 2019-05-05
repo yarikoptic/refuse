@@ -6,7 +6,7 @@ REFUSE
 Simple cross-plattform ctypes bindings for libfuse / FUSE for macOS / WinFsp
 https://github.com/pleiszenburg/refuse
 
-    src/refuse/fusell.py: "Low level" FUSE API
+    src/refuse/low.py: "Low level" FUSE API
 
     Copyright (C) 2008-2019 refuse contributors
 
