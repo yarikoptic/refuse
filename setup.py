@@ -74,6 +74,7 @@ setup(
         'Operating System :: POSIX :: BSD',
         'Operating System :: POSIX :: Linux',
         'Operating System :: Unix',
+        'Operating System :: Microsoft :: Windows',
         'Programming Language :: Python :: 3',
 		] + confirmed_python_versions + [
         'Topic :: System :: Filesystems',
