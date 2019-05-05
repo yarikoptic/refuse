@@ -532,7 +532,6 @@ else:
         ('flag_nopath', ctypes.c_uint, 1),
         ('flag_utime_omit_ok', ctypes.c_uint, 1),
         ('flag_reserved', ctypes.c_uint, 29),
-
         ('ioctl', ctypes.CFUNCTYPE(
             ctypes.c_int, ctypes.c_char_p, ctypes.c_uint, ctypes.c_void_p,
             ctypes.POINTER(fuse_file_info), ctypes.c_uint, ctypes.c_void_p)),
@@ -1159,14 +1158,14 @@ class FUSE(object):
             atime = time_of_timespec(buf.contents.actime, use_ns=self.use_ns)
             mtime = time_of_timespec(buf.contents.modtime, use_ns=self.use_ns)
             if self.use_ns:
-                now = get_now()
-                if is_utime_now(atime_ts):
+                now = get_now(self.use_ns)
+                if is_utime_now(buf.contents.actime):
                     atime = now
-                elif is_utime_omit(atime_ts):
+                elif is_utime_omit(buf.contents.actime):
                     atime = None
-                if is_utime_now(mtime_ts):
+                if is_utime_now(buf.contents.modtime):
                     mtime = now
-                elif is_utime_omit(mtime_ts):
+                elif is_utime_omit(buf.contents.modtime):
                     mtime = None
             else:
                 pass # TODO ... this is the old, bad behavior
