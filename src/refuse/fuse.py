@@ -1,17 +1,29 @@
-# Copyright (c) 2012 Terence Honles <terence@honles.com> (maintainer)
-# Copyright (c) 2008 Giorgos Verigakis <verigak@gmail.com> (author)
-#
-# Permission to use, copy, modify, and distribute this software for any
-# purpose with or without fee is hereby granted, provided that the above
-# copyright notice and this permission notice appear in all copies.
-#
-# THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-# WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-# MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-# ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-# WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-# ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-# OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+# -*- coding: utf-8 -*-
+
+"""
+
+REFUSE
+Simple cross-plattform ctypes bindings for libfuse / FUSE for macOS / WinFsp
+https://github.com/pleiszenburg/refuse
+
+    src/refuse/fuse.py: "High level" FUSE API
+
+    Copyright (C) 2008-2019 refuse contributors
+
+<LICENSE_BLOCK>
+The contents of this file are subject to the Internet Systems Consortium (ISC)
+license ("ISC license" or "License"). You may not use this file except in
+compliance with the License. You may obtain a copy of the License at
+https://opensource.org/licenses/ISC
+https://github.com/pleiszenburg/refuse/blob/master/LICENSE
+
+Software distributed under the License is distributed on an "AS IS" basis,
+WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for the
+specific language governing rights and limitations under the License.
+</LICENSE_BLOCK>
+
+"""
+
 
 from __future__ import print_function, absolute_import, division
 
