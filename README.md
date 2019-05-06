@@ -32,8 +32,8 @@ THIS PROJECT HAS **ALPHA** STATUS. The high level API has been tested through [`
 * Mac OS X (Intel, PowerPC)
 * FreeBSD (i386, amd64)
 * OpenBSD (all architectures, high level bindings only)
-* Windows (?)
-* Windows/Cygwin (?)
+* Windows (x86, x64)
+* Windows/Cygwin (x86, x64)
 
 ## Porting a project from `fusepy` to `refuse`
 
