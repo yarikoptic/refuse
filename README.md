@@ -1,4 +1,6 @@
-[![license](https://img.shields.io/pypi/l/refuse.svg?style=flat-square "Internet Systems Consortium License")](https://github.com/pleiszenburg/refuse/blob/master/LICENSE) [![status](https://img.shields.io/pypi/status/refuse.svg?style=flat-square "Project Development Status")](https://github.com/pleiszenburg/refuse/milestone/3) [![pypi_version](https://img.shields.io/pypi/v/refuse.svg?style=flat-square "Project Development Status")](https://pypi.python.org/pypi/refuse) [![pypi_versions](https://img.shields.io/pypi/pyversions/refuse.svg?style=flat-square "Available on PyPi - the Python Package Index")](https://pypi.python.org/pypi/refuse) ![refuse](http://www.pleiszenburg.de/refuse_logo.png)
+[![license](https://img.shields.io/pypi/l/refuse.svg?style=flat-square "Internet Systems Consortium License")](https://github.com/pleiszenburg/refuse/blob/master/LICENSE) [![status](https://img.shields.io/pypi/status/refuse.svg?style=flat-square "Project Development Status")](https://github.com/pleiszenburg/refuse/milestone/3) [![pypi_version](https://img.shields.io/pypi/v/refuse.svg?style=flat-square "Project Development Status")](https://pypi.python.org/pypi/refuse) [![pypi_versions](https://img.shields.io/pypi/pyversions/refuse.svg?style=flat-square "Available on PyPi - the Python Package Index")](https://pypi.python.org/pypi/refuse)
+
+![refuse](http://www.pleiszenburg.de/refuse_logo.png)
 
 ## Synopsis
 
