@@ -38,7 +38,7 @@ from setuptools import find_packages, setup
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # BUMP VERSION HERE!
-_version_ = '0.0.1'
+_version_ = '0.0.2'
 
 # List all versions of Python which are supported
 confirmed_python_versions = [
@@ -70,6 +70,7 @@ setup(
     version = _version_,
     description = 'Simple cross-plattform ctypes bindings for libfuse / FUSE for macOS / WinFsp',
     long_description = long_description,
+    long_description_content_type = 'text/markdown',
     author = 'Sebastian M. Ernst',
     author_email = 'ernst@pleiszenburg.de',
     url = 'https://github.com/pleiszenburg/refuse',
