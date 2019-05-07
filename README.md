@@ -42,7 +42,8 @@ THIS PROJECT HAS **ALPHA** STATUS. The high level API has been tested through [`
 ## Miscellaneous
 
 - [Authors](https://github.com/pleiszenburg/refuse/blob/master/AUTHORS.md) (credit where credit is due)
-- [Change log](https://github.com/pleiszenburg/refuse/blob/master/CHANGES.md) (release history)
+- [Change log (current)](https://github.com/pleiszenburg/refuse/blob/develop/CHANGES.md) (changes in development branch since last release)
+- [Change log (past)](https://github.com/pleiszenburg/refuse/blob/master/CHANGES.md) (release history)
 - [Contributing](https://github.com/pleiszenburg/refuse/blob/master/CONTRIBUTING.md) (**Contributions are highly welcomed!**)
 - [Documentation](https://github.com/pleiszenburg/refuse/tree/master/docs) (mostly notes at this point)
 - [License](https://github.com/pleiszenburg/refuse/blob/master/LICENSE) (**ISCL**)
