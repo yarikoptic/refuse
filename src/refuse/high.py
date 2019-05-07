@@ -728,7 +728,7 @@ class FuseOSError(OSError):
 # CLASS: FUSE
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class FUSE(object):
+class FUSE:
     '''
     This class is the lower level interface and should not be subclassed under
     normal use. Its methods are called by fuse.
@@ -1190,7 +1190,7 @@ class FUSE(object):
 # CLASS: Operations
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class Operations(object):
+class Operations:
     '''
     This class should be subclassed and passed as an argument to FUSE on
     initialization. All operations should raise a FuseOSError exception on

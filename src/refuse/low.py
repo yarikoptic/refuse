@@ -490,7 +490,7 @@ def setattr_mask_to_list(mask):
 # CLASS: FUSELL
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-class FUSELL(object):
+class FUSELL:
     use_ns = False
 
     def __init__(self, mountpoint, encoding='utf-8'):
