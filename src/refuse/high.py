@@ -25,6 +25,10 @@ specific language governing rights and limitations under the License.
 """
 
 
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# IMPORT
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 import ctypes
 import errno
 import logging
@@ -44,6 +48,11 @@ except ImportError:
 	time_ns = lambda: int(time() * 1e9)
 
 from functools import partial
+
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# HEADER: TODO organize ...
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 log = logging.getLogger("fuse")
 _system = system()
@@ -706,10 +715,18 @@ def fuse_exit():
     _libfuse.fuse_exit(fuse_ptr)
 
 
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# CLASS: FuseOSError
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 class FuseOSError(OSError):
     def __init__(self, errno):
         super(FuseOSError, self).__init__(errno, os.strerror(errno))
 
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# CLASS: FUSE
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 class FUSE(object):
     '''
@@ -1168,6 +1185,11 @@ class FUSE(object):
         return self.operations('ioctl', path.decode(self.encoding),
             cmd, arg, fh, flags, data)
 
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# CLASS: Operations
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 class Operations(object):
     '''
     This class should be subclassed and passed as an argument to FUSE on
@@ -1348,6 +1370,10 @@ class Operations(object):
     def write(self, path, data, offset, fh):
         raise FuseOSError(errno.EROFS)
 
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# CLASS: LoggingMixIn
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 class LoggingMixIn:
     log = logging.getLogger('fuse.log-mixin')
