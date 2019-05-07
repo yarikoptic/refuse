@@ -50,8 +50,7 @@ THIS PROJECT HAS **ALPHA** STATUS. The high level API has been tested through [`
   </tr>
   <tr>
     <td>3</td>
-    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
-    <td>no</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
   </tr>
   <tr>
     <td rowspan="4">Mac OS X</td><td rowspan="2">high</td><td>2</td>
@@ -67,8 +66,7 @@ THIS PROJECT HAS **ALPHA** STATUS. The high level API has been tested through [`
   </tr>
   <tr>
     <td>3</td>
-    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
-    <td>no</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
   </tr>
   <tr>
     <td rowspan="4">FreeBSD</td><td rowspan="2">high</td><td>2</td>
@@ -84,15 +82,57 @@ THIS PROJECT HAS **ALPHA** STATUS. The high level API has been tested through [`
   </tr>
   <tr>
     <td>3</td>
-    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
-    <td>no</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td rowspan="4">OpenBSD</td><td rowspan="2">high</td><td>2</td>
+    <td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td rowspan="2">low</td><td>2</td>
+    <td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td rowspan="4">Windows</td><td rowspan="2">high</td><td>2</td>
+    <td>yes</td><td>yes</td><td></td><td></td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td></td><td></td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td rowspan="2">low</td><td>2</td>
+    <td>yes</td><td>yes</td><td></td><td></td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td></td><td></td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td rowspan="4">Windows/Cygwin</td><td rowspan="2">high</td><td>2</td>
+    <td>yes</td><td>yes</td><td></td><td></td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td></td><td></td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td rowspan="2">low</td><td>2</td>
+    <td>yes</td><td>yes</td><td></td><td></td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td></td><td></td><td>no</td><td>no</td>
   </tr>
 </table>
-
-* FreeBSD (i386, amd64)
-* OpenBSD (all architectures, high level bindings only)
-* Windows (x86, x64)
-* Windows/Cygwin (x86, x64)
 
 ## Porting a project from `fusepy` to `refuse`
 
