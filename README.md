@@ -28,7 +28,37 @@ THIS PROJECT HAS **ALPHA** STATUS. The high level API has been tested through [`
 
 `refuse` requires `libfuse` 2.8 or 2.9 (highly recommended), `FUSE for macOS` or `WinFsp`. It (theoretically) runs on:
 
-* Linux (i386, x86_64, PPC, arm64, MIPS)
+<table>
+  <tr>
+    <th>OS</th>
+    <th colspan="2">API</th>
+    <th colspan="6">arch</th>
+  </tr>
+  <tr>
+    <th></th>
+    <th>level</th>
+    <th>version</th>
+    <th>i386</th>
+    <th>x86_64</th>
+    <th>PPC</th>
+    <th>PPC64</th>
+    <th>arm64</th>
+    <th>MIPS</th>
+  </tr>
+  <tr>
+    <td>Linux</td>
+    <td>high</td>
+    <td>2</td>
+    <td>yes</td>
+    <td>yes</td>
+    <td>yes</td>
+    <td>yes</td>
+    <td>yes</td>
+    <td>yes</td>
+  </tr>
+</table>
+
+* Linux (i386, x86_64, PPC, PPC64, arm64, MIPS)
 * Mac OS X (Intel, PowerPC)
 * FreeBSD (i386, amd64)
 * OpenBSD (all architectures, high level bindings only)
