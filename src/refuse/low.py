@@ -25,8 +25,6 @@ specific language governing rights and limitations under the License.
 """
 
 
-from __future__ import print_function, absolute_import, division
-
 import ctypes
 import errno
 import os
