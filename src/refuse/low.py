@@ -25,6 +25,10 @@ specific language governing rights and limitations under the License.
 """
 
 
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# IMPORT
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 import ctypes
 import errno
 import os
@@ -35,6 +39,10 @@ from platform import machine, system
 from signal import signal, SIGINT, SIG_DFL
 from stat import S_IFDIR
 
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# HEADER: TODO organize ...
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 _system = system()
 _machine = machine()
@@ -54,6 +62,7 @@ if not _libfuse_path:
     raise EnvironmentError('Unable to find libfuse')
 else:
     _libfuse = ctypes.CDLL(_libfuse_path)
+
 
 class LibFUSE(ctypes.CDLL):
     def __init__(self):
@@ -475,6 +484,11 @@ def dict_to_stat(d, use_ns=False):
 
 def setattr_mask_to_list(mask):
     return [FUSE_SET_ATTR[i] for i in range(len(FUSE_SET_ATTR)) if mask & (1 << i)]
+
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# CLASS: FUSELL
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 class FUSELL(object):
     use_ns = False
