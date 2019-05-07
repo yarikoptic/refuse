@@ -46,8 +46,8 @@ THIS PROJECT HAS **ALPHA** STATUS. The high level API has been tested through [`
     <th>MIPS</th>
   </tr>
   <tr>
-    <td>Linux</td>
-    <td>high</td>
+    <td rowspan="4">Linux</td>
+    <td rowspan="2">high</td>
     <td>2</td>
     <td>yes</td>
     <td>yes</td>
@@ -55,6 +55,15 @@ THIS PROJECT HAS **ALPHA** STATUS. The high level API has been tested through [`
     <td>yes</td>
     <td>yes</td>
     <td>yes</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td>
+    <td>no</td>
+    <td>no</td>
+    <td>no</td>
+    <td>no</td>
+    <td>no</td>
   </tr>
 </table>
 
