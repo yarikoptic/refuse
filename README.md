@@ -65,6 +65,25 @@ THIS PROJECT HAS **ALPHA** STATUS. The high level API has been tested through [`
     <td>no</td>
     <td>no</td>
   </tr>
+  <tr>
+    <td rowspan="2">low</td>
+    <td>2</td>
+    <td>yes</td>
+    <td>yes</td>
+    <td>yes</td>
+    <td>yes</td>
+    <td>yes</td>
+    <td>yes</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td>
+    <td>no</td>
+    <td>no</td>
+    <td>no</td>
+    <td>no</td>
+    <td>no</td>
+  </tr>
 </table>
 
 * Linux (i386, x86_64, PPC, PPC64, arm64, MIPS)
