@@ -54,19 +54,19 @@ THIS PROJECT HAS **ALPHA** STATUS. The high level API has been tested through [`
   </tr>
   <tr>
     <td rowspan="4">Mac OS X</td><td rowspan="2">high</td><td>2</td>
-    <td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>no</td><td>no</td>
+    <td>yes</td><td>yes</td><td>yes</td><td>yes</td><td></td><td></td>
   </tr>
   <tr>
     <td>3</td>
-    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td></td><td></td>
   </tr>
   <tr>
     <td rowspan="2">low</td><td>2</td>
-    <td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>no</td><td>no</td>
+    <td>yes</td><td>yes</td><td>yes</td><td>yes</td><td></td><td></td>
   </tr>
   <tr>
     <td>3</td>
-    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td></td><td></td>
   </tr>
   <tr>
     <td rowspan="4">FreeBSD</td><td rowspan="2">high</td><td>2</td>
@@ -102,35 +102,35 @@ THIS PROJECT HAS **ALPHA** STATUS. The high level API has been tested through [`
   </tr>
   <tr>
     <td rowspan="4">Windows</td><td rowspan="2">high</td><td>2</td>
-    <td>yes</td><td>yes</td><td></td><td></td><td>no</td><td>no</td>
+    <td>yes</td><td>yes</td><td></td><td></td><td>no</td><td></td>
   </tr>
   <tr>
     <td>3</td>
-    <td>no</td><td>no</td><td></td><td></td><td>no</td><td>no</td>
+    <td>no</td><td>no</td><td></td><td></td><td>no</td><td></td>
   </tr>
   <tr>
     <td rowspan="2">low</td><td>2</td>
-    <td>yes</td><td>yes</td><td></td><td></td><td>no</td><td>no</td>
+    <td>yes</td><td>yes</td><td></td><td></td><td>no</td><td></td>
   </tr>
   <tr>
     <td>3</td>
-    <td>no</td><td>no</td><td></td><td></td><td>no</td><td>no</td>
+    <td>no</td><td>no</td><td></td><td></td><td>no</td><td></td>
   </tr>
   <tr>
     <td rowspan="4">Windows/Cygwin</td><td rowspan="2">high</td><td>2</td>
-    <td>yes</td><td>yes</td><td></td><td></td><td>no</td><td>no</td>
+    <td>yes</td><td>yes</td><td></td><td></td><td>no</td><td></td>
   </tr>
   <tr>
     <td>3</td>
-    <td>no</td><td>no</td><td></td><td></td><td>no</td><td>no</td>
+    <td>no</td><td>no</td><td></td><td></td><td>no</td><td></td>
   </tr>
   <tr>
     <td rowspan="2">low</td><td>2</td>
-    <td>yes</td><td>yes</td><td></td><td></td><td>no</td><td>no</td>
+    <td>yes</td><td>yes</td><td></td><td></td><td>no</td><td></td>
   </tr>
   <tr>
     <td>3</td>
-    <td>no</td><td>no</td><td></td><td></td><td>no</td><td>no</td>
+    <td>no</td><td>no</td><td></td><td></td><td>no</td><td></td>
   </tr>
 </table>
 
