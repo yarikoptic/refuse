@@ -45,11 +45,6 @@ except ImportError:
 
 from functools import partial
 
-try:
-    basestring
-except NameError:
-    basestring = str
-
 log = logging.getLogger("fuse")
 _system = system()
 _machine = machine()
@@ -1061,7 +1056,7 @@ class FUSE(object):
         for item in self.operations('readdir', self._decode_optional_path(path),
                                                fip.contents.fh):
 
-            if isinstance(item, basestring):
+            if isinstance(item, str):
                 name, st, offset = item, None, 0
             else:
                 name, attrs, offset = item
