@@ -30,64 +30,65 @@ THIS PROJECT HAS **ALPHA** STATUS. The high level API has been tested through [`
 
 <table>
   <tr>
-    <th>OS</th>
-    <th colspan="2">API</th>
-    <th colspan="6">arch</th>
+    <th>OS</th><th colspan="2">API</th><th colspan="6">arch</th>
   </tr>
   <tr>
-    <th></th>
-    <th>level</th>
-    <th>version</th>
-    <th>i386</th>
-    <th>x86_64</th>
-    <th>PPC</th>
-    <th>PPC64</th>
-    <th>arm64</th>
-    <th>MIPS</th>
+    <th></th><th>level</th><th>version</th>
+    <th>i386</th><th>x86_64</th><th>PPC</th><th>PPC64</th><th>arm64</th><th>MIPS</th>
   </tr>
   <tr>
-    <td rowspan="4">Linux</td>
-    <td rowspan="2">high</td>
-    <td>2</td>
-    <td>yes</td>
-    <td>yes</td>
-    <td>yes</td>
-    <td>yes</td>
-    <td>yes</td>
-    <td>yes</td>
+    <td rowspan="4">Linux</td><td rowspan="2">high</td><td>2</td>
+    <td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td>
   </tr>
   <tr>
     <td>3</td>
-    <td>no</td>
-    <td>no</td>
-    <td>no</td>
-    <td>no</td>
-    <td>no</td>
-    <td>no</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
   </tr>
   <tr>
-    <td rowspan="2">low</td>
-    <td>2</td>
-    <td>yes</td>
-    <td>yes</td>
-    <td>yes</td>
-    <td>yes</td>
-    <td>yes</td>
-    <td>yes</td>
+    <td rowspan="2">low</td><td>2</td>
+    <td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td>
   </tr>
   <tr>
     <td>3</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
     <td>no</td>
+  </tr>
+  <tr>
+    <td rowspan="4">Mac OS X</td><td rowspan="2">high</td><td>2</td>
+    <td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td rowspan="2">low</td><td>2</td>
+    <td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
     <td>no</td>
-    <td>no</td>
-    <td>no</td>
-    <td>no</td>
+  </tr>
+  <tr>
+    <td rowspan="4">FreeBSD</td><td rowspan="2">high</td><td>2</td>
+    <td>yes</td><td>yes</td><td>no</td><td>no</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td rowspan="2">low</td><td>2</td>
+    <td>yes</td><td>yes</td><td>no</td><td>no</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
     <td>no</td>
   </tr>
 </table>
 
-* Linux (i386, x86_64, PPC, PPC64, arm64, MIPS)
-* Mac OS X (Intel, PowerPC)
 * FreeBSD (i386, amd64)
 * OpenBSD (all architectures, high level bindings only)
 * Windows (x86, x64)
