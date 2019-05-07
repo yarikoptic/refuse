@@ -102,7 +102,7 @@ pip install git+https://github.com/pleiszenburgrefuse.git@develop
   </tr>
   <tr>
     <td rowspan="2">low</td><td>2</td>
-    <td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
   </tr>
   <tr>
     <td>3</td>
