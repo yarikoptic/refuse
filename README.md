@@ -26,7 +26,7 @@ THIS PROJECT HAS **ALPHA** STATUS. The high level API has been tested through [`
 
 ## Installation
 
-`refuse` requires `libfuse` 2.8 or 2.9 (highly recommended), `FUSE for macOS` or `WinFsp`. The [`master` branch](https://github.com/pleiszenburg/refuse/tree/master) of its git repository is always kept at the latest release, which should be "sort of stable" (APLHA!). Development happens in the [`develop` branch](https://github.com/pleiszenburg/refuse/tree/develop). Install either one with
+`refuse` requires `libfuse` 2.8 or 2.9 (highly recommended), `FUSE for macOS` or `WinFsp`. The [`master` branch](https://github.com/pleiszenburg/refuse/tree/master) of its git repository is always kept at the latest release, which should be "sort of stable" (still ALPHA). Development happens in the [`develop` branch](https://github.com/pleiszenburg/refuse/tree/develop). Install either one with
 
 ```bash
 pip install git+https://github.com/pleiszenburgrefuse.git@master
