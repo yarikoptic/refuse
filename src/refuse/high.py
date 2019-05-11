@@ -25,7 +25,9 @@ specific language governing rights and limitations under the License.
 """
 
 
-from __future__ import print_function, absolute_import, division
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# IMPORT
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 import ctypes
 import errno
@@ -45,25 +47,12 @@ try:
 except ImportError:
 	time_ns = lambda: int(time() * 1e9)
 
-try:
-    from functools import partial
-except ImportError:
-    # http://docs.python.org/library/functools.html#functools.partial
-    def partial(func, *args, **keywords):
-        def newfunc(*fargs, **fkeywords):
-            newkeywords = keywords.copy()
-            newkeywords.update(fkeywords)
-            return func(*(args + fargs), **newkeywords)
+from functools import partial
 
-        newfunc.func = func
-        newfunc.args = args
-        newfunc.keywords = keywords
-        return newfunc
 
-try:
-    basestring
-except NameError:
-    basestring = str
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# HEADER: TODO organize ...
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 log = logging.getLogger("fuse")
 _system = system()
@@ -754,7 +743,11 @@ class FuseOSError(OSError):
         super(FuseOSError, self).__init__(errno, os.strerror(errno))
 
 
-class FUSE(object):
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# CLASS: FUSE
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+class FUSE:
     '''
     This class is the lower level interface and should not be subclassed under
     normal use. Its methods are called by fuse.
@@ -1099,7 +1092,7 @@ class FUSE(object):
         for item in self.operations('readdir', self._decode_optional_path(path),
                                                fip.contents.fh):
 
-            if isinstance(item, basestring):
+            if isinstance(item, str):
                 name, st, offset = item, None, 0
             else:
                 name, attrs, offset = item
@@ -1211,7 +1204,12 @@ class FUSE(object):
         return self.operations('ioctl', path.decode(self.encoding),
             cmd, arg, fh, flags, data)
 
-class Operations(object):
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# CLASS: Operations
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+class Operations:
     '''
     This class should be subclassed and passed as an argument to FUSE on
     initialization. All operations should raise a FuseOSError exception on
@@ -1391,6 +1389,10 @@ class Operations(object):
     def write(self, path, data, offset, fh):
         raise FuseOSError(errno.EROFS)
 
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# CLASS: LoggingMixIn
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 class LoggingMixIn:
     log = logging.getLogger('fuse.log-mixin')

@@ -26,14 +26,121 @@ THIS PROJECT HAS **ALPHA** STATUS. The high level API has been tested through [`
 
 ## Installation
 
-`refuse` requires `libfuse` 2.8 or 2.9 (highly recommended), `FUSE for macOS` or `WinFsp`. It (theoretically) runs on:
+`refuse` requires `libfuse` 2.8 or 2.9 (highly recommended), `FUSE for macOS` or `WinFsp`. The [`master` branch](https://github.com/pleiszenburg/refuse/tree/master) of its git repository is always kept at the latest release, which should be "sort of stable" (still ALPHA). Development happens in the [`develop` branch](https://github.com/pleiszenburg/refuse/tree/develop). Install either one with
 
-* Linux (i386, x86_64, PPC, arm64, MIPS)
-* Mac OS X (Intel, PowerPC)
-* FreeBSD (i386, amd64)
-* OpenBSD (all architectures, high level bindings only)
-* Windows (?)
-* Windows/Cygwin (?)
+```bash
+pip install git+https://github.com/pleiszenburgrefuse.git@master
+# or
+pip install git+https://github.com/pleiszenburgrefuse.git@develop
+```
+
+`refuse` (theoretically) runs on:
+
+<table>
+  <tr>
+    <th>OS</th><th colspan="2">API</th><th colspan="6">arch</th>
+  </tr>
+  <tr>
+    <th></th><th>level</th><th>version</th>
+    <th>i386</th><th>x86_64</th><th>PPC</th><th>PPC64</th><th>arm64</th><th>MIPS</th>
+  </tr>
+  <tr>
+    <td rowspan="4">Linux</td><td rowspan="2">high</td><td>2</td>
+    <td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td rowspan="2">low</td><td>2</td>
+    <td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td rowspan="4">Mac OS X</td><td rowspan="2">high</td><td>2</td>
+    <td>yes</td><td>yes</td><td>yes</td><td>yes</td><td></td><td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td></td><td></td>
+  </tr>
+  <tr>
+    <td rowspan="2">low</td><td>2</td>
+    <td>yes</td><td>yes</td><td>yes</td><td>yes</td><td></td><td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td></td><td></td>
+  </tr>
+  <tr>
+    <td rowspan="4">FreeBSD</td><td rowspan="2">high</td><td>2</td>
+    <td>yes</td><td>yes</td><td>no</td><td>no</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td rowspan="2">low</td><td>2</td>
+    <td>yes</td><td>yes</td><td>no</td><td>no</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td rowspan="4">OpenBSD</td><td rowspan="2">high</td><td>2</td>
+    <td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td rowspan="2">low</td><td>2</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td>no</td><td>no</td><td>no</td><td>no</td>
+  </tr>
+  <tr>
+    <td rowspan="4">Windows</td><td rowspan="2">high</td><td>2</td>
+    <td>yes</td><td>yes</td><td></td><td></td><td>no</td><td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td></td><td></td><td>no</td><td></td>
+  </tr>
+  <tr>
+    <td rowspan="2">low</td><td>2</td>
+    <td>no</td><td>no</td><td></td><td></td><td>no</td><td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td></td><td></td><td>no</td><td></td>
+  </tr>
+  <tr>
+    <td rowspan="4">Windows/Cygwin</td><td rowspan="2">high</td><td>2</td>
+    <td>yes</td><td>yes</td><td></td><td></td><td>no</td><td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td></td><td></td><td>no</td><td></td>
+  </tr>
+  <tr>
+    <td rowspan="2">low</td><td>2</td>
+    <td>no</td><td>no</td><td></td><td></td><td>no</td><td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>no</td><td>no</td><td></td><td></td><td>no</td><td></td>
+  </tr>
+</table>
 
 ## Porting a project from `fusepy` to `refuse`
 
@@ -42,7 +149,8 @@ THIS PROJECT HAS **ALPHA** STATUS. The high level API has been tested through [`
 ## Miscellaneous
 
 - [Authors](https://github.com/pleiszenburg/refuse/blob/master/AUTHORS.md) (credit where credit is due)
-- [Change log](https://github.com/pleiszenburg/refuse/blob/master/CHANGES.md) (release history)
+- [Change log (current)](https://github.com/pleiszenburg/refuse/blob/develop/CHANGES.md) (changes in development branch since last release)
+- [Change log (past)](https://github.com/pleiszenburg/refuse/blob/master/CHANGES.md) (release history)
 - [Contributing](https://github.com/pleiszenburg/refuse/blob/master/CONTRIBUTING.md) (**Contributions are highly welcomed!**)
 - [Documentation](https://github.com/pleiszenburg/refuse/tree/master/docs) (mostly notes at this point)
 - [License](https://github.com/pleiszenburg/refuse/blob/master/LICENSE) (**ISCL**)
