@@ -715,9 +715,28 @@ def fuse_exit():
     _libfuse.fuse_exit(fuse_ptr)
 
 
-# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# CLASS: FuseOSError
-# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+def get_fuse_version():
+    for method in [
+        lambda: _libfuse.fuse_pkgversion(),
+        lambda: _libfuse.fuse3_pkgversion(),
+        lambda: _libfuse.fuse_version(),
+        lambda: _libfuse.fuse3_version(),
+        lambda: _libfuse.macfuse_version(),
+        lambda: _libfuse.osxfuse_version(),
+    ]:
+        try:
+            val = method()
+            if isinstance(val, int) and val > 10:
+                return str(val / 10)
+            else:
+                return val
+        except AttributeError:
+            pass
+
+
+def get_fuse_libfile():
+    return _libfuse._name
+
 
 class FuseOSError(OSError):
     def __init__(self, errno):
