@@ -10,3 +10,4 @@ system/
 build/
 dist/
 *.egg-info
+notes.md
