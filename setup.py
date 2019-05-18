@@ -38,7 +38,7 @@ from setuptools import find_packages, setup
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # BUMP VERSION HERE!
-_version_ = '0.0.3'
+_version_ = '0.0.4'
 
 # List all versions of Python which are supported
 confirmed_python_versions = [

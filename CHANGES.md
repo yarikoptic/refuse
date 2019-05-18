@@ -1,5 +1,9 @@
 # Changes
 
+## 0.0.4 (2019-XX-XX)
+
+- (TBD)
+
 ## 0.0.3 (2019-05-18)
 
 - Removed Python-2-compatibility code
