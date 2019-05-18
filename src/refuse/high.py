@@ -35,7 +35,6 @@ import logging
 import os
 import warnings
 
-from ctypes.util import find_library
 from platform import machine, system
 from signal import signal, SIGINT, SIG_DFL, SIGTERM
 from stat import S_IFDIR
@@ -93,41 +92,9 @@ class c_utimbuf(ctypes.Structure):
 class c_stat(ctypes.Structure):
     pass    # Platform dependent
 
-_libfuse_path = os.environ.get('FUSE_LIBRARY_PATH')
-if not _libfuse_path:
-    if _system == 'Darwin':
-        # libfuse dependency
-        _libiconv = ctypes.CDLL(find_library('iconv'), ctypes.RTLD_GLOBAL)
-
-        _libfuse_path = (find_library('fuse4x') or find_library('osxfuse') or
-                         find_library('fuse'))
-    elif _system == 'Windows':
-        try:
-            import _winreg as reg
-        except ImportError:
-            import winreg as reg
-        def Reg32GetValue(rootkey, keyname, valname):
-            key, val = None, None
-            try:
-                key = reg.OpenKey(rootkey, keyname, 0, reg.KEY_READ | reg.KEY_WOW64_32KEY)
-                val = str(reg.QueryValueEx(key, valname)[0])
-            except WindowsError:
-                pass
-            finally:
-                if key is not None:
-                    reg.CloseKey(key)
-            return val
-        _libfuse_path = Reg32GetValue(reg.HKEY_LOCAL_MACHINE, r"SOFTWARE\WinFsp", r"InstallDir")
-        if _libfuse_path:
-            _libfuse_path += r"bin\winfsp-%s.dll" % ("x64" if sys.maxsize > 0xffffffff else "x86")
-    else:
-        _libfuse_path = find_library('fuse')
-
-if not _libfuse_path:
-    raise EnvironmentError('Unable to find libfuse')
-else:
-    _libfuse = ctypes.CDLL(_libfuse_path)
-
+# HACK get reference on library
+from ._refactor import get_libfuse
+_libfuse = get_libfuse(_system)
 
 # HACK _system might change here ...
 if _system == 'Darwin' and hasattr(_libfuse, 'macfuse_version'):
@@ -741,6 +708,10 @@ def get_fuse_version():
 def get_fuse_libfile():
     return _libfuse._name
 
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# CLASS: FuseOSError
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 class FuseOSError(OSError):
     def __init__(self, errno):
