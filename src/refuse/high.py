@@ -480,8 +480,6 @@ else:
             ('pid', c_pid_t),
             ('private_data', ctypes.c_voidp)]
 
-_libfuse.fuse_get_context.restype = ctypes.POINTER(fuse_context)
-
 if _system == "OpenBSD":
     bmap_ret_t = ctypes.c_uint64
     extra_fields = []
@@ -619,7 +617,14 @@ class fuse_operations(ctypes.Structure):
 
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# ROUTINES
+# ROUTINES: bindings
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+_libfuse.fuse_get_context.restype = ctypes.POINTER(fuse_context)
+
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# ROUTINES: refuse
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 if _system == "OpenBSD":
