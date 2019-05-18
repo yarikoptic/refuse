@@ -12,13 +12,15 @@
 
 `refuse` originated as a fork of [`fusepy`](https://github.com/fusepy/fusepy). This fork will break with its origins in (at least) the following aspects:
 
-* Dropping Python 2 support
-* Dropping the monolithic single-file-design
-* Adding ``libfuse3`` support
-* Marking ``libfuse2`` support as deprecated
-* A test suite
+- [x] Dropping Python 2 support
+- [ ] Dropping the monolithic single-file-design
+- [ ] Adding ``libfuse3`` support
+- [ ] Marking ``libfuse2`` support as deprecated
+- [ ] A test suite
 
 **If you have a pending pull request against `fusepy` that you would like to see included into `refuse` please open an issue here.**
+
+**If you want to contribute to `refuse`, please have a look at the [contributing guidelines](https://github.com/pleiszenburg/refuse/blob/develop/CONTRIBUTING.md).**
 
 ## Project status
 
