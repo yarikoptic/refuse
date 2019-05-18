@@ -55,6 +55,8 @@ from functools import partial
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 log = logging.getLogger("fuse")
+
+# switch through operating systems and architectures
 _system = system()
 _machine = machine()
 
@@ -126,6 +128,8 @@ if not _libfuse_path:
 else:
     _libfuse = ctypes.CDLL(_libfuse_path)
 
+
+# HACK _system might change here ...
 if _system == 'Darwin' and hasattr(_libfuse, 'macfuse_version'):
     _system = 'Darwin-MacFuse'
 
