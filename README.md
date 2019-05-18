@@ -22,15 +22,23 @@
 
 ## Project status
 
-THIS PROJECT HAS **ALPHA** STATUS. The high level API has been tested through [`LoggedFS-python`](https://github.com/pleiszenburg/loggedfs-python) with [`pjdfstest`](https://github.com/pjd/pjdfstest/) and [`fsx`](https://github.com/linux-test-project/ltp/blob/master/testcases/kernel/fs/fsx-linux/fsx-linux.c), but not in all possible modes of operation. The low level API is completely untested at this point.
+THIS PROJECT HAS **ALPHA** STATUS.
+
+The high level API has been tested through [`LoggedFS-python`](https://github.com/pleiszenburg/loggedfs-python) with [`pjdfstest`](https://github.com/pjd/pjdfstest/) and [`fsx`](https://github.com/linux-test-project/ltp/blob/master/testcases/kernel/fs/fsx-linux/fsx-linux.c) on x86_64 Linux only, but not in all possible modes of operation. The low level API is completely untested at this point.
 
 ## Installation
 
-`refuse` requires `libfuse` 2.8 or 2.9 (highly recommended), `FUSE for macOS` or `WinFsp`. The [`master` branch](https://github.com/pleiszenburg/refuse/tree/master) of its git repository is always kept at the latest release, which should be "sort of stable" (still ALPHA). Development happens in the [`develop` branch](https://github.com/pleiszenburg/refuse/tree/develop). Install either one with
+`refuse` requires `libfuse` 2.8 or 2.9 (highly recommended), `FUSE for macOS` or `WinFsp`. The [`master` branch](https://github.com/pleiszenburg/refuse/tree/master) of its git repository is always kept at the latest *preview release*. It should be "sort of stable" (still ALPHA). Development happens in the [`develop` branch](https://github.com/pleiszenburg/refuse/tree/develop).
+
+You can install the *preview releases* from PyPI:
 
 ```bash
-pip install git+https://github.com/pleiszenburgrefuse.git@master
-# or
+pip install refuse
+```
+
+You can alternatively also install the current `HEAD`, most likely very unstable:
+
+```bash
 pip install git+https://github.com/pleiszenburgrefuse.git@develop
 ```
 
