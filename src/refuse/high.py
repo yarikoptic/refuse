@@ -617,6 +617,11 @@ class fuse_operations(ctypes.Structure):
             ctypes.POINTER(bmap_ret_t))),
     ] + extra_fields
 
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# ROUTINES
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 if _system == "OpenBSD":
     def fuse_main_real(argc, argv, fuse_ops_v, sizeof_fuse_ops, ctx_p):
         return _libfuse.fuse_main(argc, argv, fuse_ops_v, ctx_p)
