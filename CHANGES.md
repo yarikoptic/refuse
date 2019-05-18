@@ -1,6 +1,6 @@
 # Changes
 
-## 0.0.3 (2019-XX-XX)
+## 0.0.3 (2019-05-18)
 
 - Removed Python-2-compatibility code
 - Improved documentation, especially contribution guidelines
