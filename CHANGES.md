@@ -1,5 +1,11 @@
 # Changes
 
+## 0.0.3 (2019-05-18)
+
+- Removed Python-2-compatibility code
+- Improved documentation, especially contribution guidelines
+- Added development infrastructure for determining current FUSE version (contribution)
+
 ## 0.0.2 (2019-05-06)
 
 - FIX: `README.md` was not rendered properly on [PyPI](https://pypi.python.org/pypi/refuse).
