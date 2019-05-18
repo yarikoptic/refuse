@@ -4,6 +4,7 @@
 
 - Removed Python-2-compatibility code
 - Improved documentation, especially contribution guidelines
+- Added development infrastructure for determining current FUSE version (contribution)
 
 ## 0.0.2 (2019-05-06)
 
