@@ -50,7 +50,7 @@ from functools import partial
 
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# HEADER: TODO organize ...
+# HEADER: "INIT"
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 log = logging.getLogger("fuse")
@@ -58,6 +58,15 @@ log = logging.getLogger("fuse")
 # switch through operating systems and architectures
 _system = system()
 _machine = machine()
+
+# HACK get reference on library
+from ._refactor import get_libfuse
+_libfuse = get_libfuse(_system)
+
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# HEADER: TYPES
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 if _system == 'Windows':
     # NOTE:
@@ -92,14 +101,11 @@ class c_utimbuf(ctypes.Structure):
 class c_stat(ctypes.Structure):
     pass    # Platform dependent
 
-# HACK get reference on library
-from ._refactor import get_libfuse
-_libfuse = get_libfuse(_system)
-
+# XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 # HACK _system might change here ...
 if _system == 'Darwin' and hasattr(_libfuse, 'macfuse_version'):
     _system = 'Darwin-MacFuse'
-
+# XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 if _system in ('Darwin', 'Darwin-MacFuse', 'FreeBSD'):
     ENOTSUP = 45
