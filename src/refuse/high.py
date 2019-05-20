@@ -150,7 +150,7 @@ if _system in ('Darwin', 'Darwin-MacFuse', 'FreeBSD'):
             ('st_gen', ctypes.c_int32),
             ('st_lspare', ctypes.c_int32),
             ('st_qspare', ctypes.c_int64)]
-    else:
+    else: # MacFuse, FreeBSD
         c_stat._fields_ = [
             ('st_dev', c_dev_t),
             ('st_ino', ctypes.c_uint32),
