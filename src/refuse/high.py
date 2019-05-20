@@ -67,6 +67,10 @@ if _system.startswith('CYGWIN'):
 from ._refactor import get_libfuse
 _libfuse = get_libfuse(_system)
 
+# Get MacFUSE status by looking at library
+if _system == 'Darwin' and hasattr(_libfuse, 'macfuse_version'):
+    _system = 'Darwin-MacFuse'
+
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # HEADER: TYPES
@@ -104,12 +108,6 @@ class c_utimbuf(ctypes.Structure):
 
 class c_stat(ctypes.Structure):
     pass    # Platform dependent
-
-# XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-# HACK _system might change here ...
-if _system == 'Darwin' and hasattr(_libfuse, 'macfuse_version'):
-    _system = 'Darwin-MacFuse'
-# XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 if _system in ('Darwin', 'Darwin-MacFuse', 'FreeBSD'):
     ENOTSUP = 45
