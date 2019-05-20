@@ -59,6 +59,10 @@ log = logging.getLogger("fuse")
 _system = system()
 _machine = machine()
 
+# Simplify CYGWIN check
+if _system.startswith('CYGWIN'):
+    _system = 'CYGWIN'
+
 # HACK get reference on library
 from ._refactor import get_libfuse
 _libfuse = get_libfuse(_system)
@@ -84,7 +88,7 @@ if _system == 'Windows':
         c_win_long = ctypes.c_int32
         c_win_ulong = ctypes.c_uint32
 
-if _system == 'Windows' or _system.startswith('CYGWIN'):
+if _system == 'Windows' or _system == 'CYGWIN':
     class c_timespec(ctypes.Structure):
         _fields_ = [('tv_sec', c_win_long), ('tv_nsec', c_win_long)]
 elif _system == 'OpenBSD':
@@ -302,7 +306,7 @@ elif _system == 'Linux':
             ('st_mtimespec', c_timespec),
             ('st_ctimespec', c_timespec),
             ('st_ino', ctypes.c_ulonglong)]
-elif _system == 'Windows' or _system.startswith('CYGWIN'):
+elif _system == 'Windows' or _system == 'CYGWIN':
     ENOTSUP = 129 if _system == 'Windows' else 134
     c_dev_t = ctypes.c_uint
     c_fsblkcnt_t = c_win_ulong
@@ -396,7 +400,7 @@ if _system == 'FreeBSD':
             ('f_bsize', ctypes.c_ulong),
             ('f_flag', ctypes.c_ulong),
             ('f_frsize', ctypes.c_ulong)]
-elif _system == 'Windows' or _system.startswith('CYGWIN'):
+elif _system == 'Windows' or _system == 'CYGWIN':
     class c_statvfs(ctypes.Structure):
         _fields_ = [
             ('f_bsize', c_win_ulong),
@@ -426,7 +430,7 @@ else:
             ('f_flag', ctypes.c_ulong),
             ('f_namemax', ctypes.c_ulong)]
 
-if _system == 'Windows' or _system.startswith('CYGWIN'):
+if _system == 'Windows' or _system == 'CYGWIN':
     class fuse_file_info(ctypes.Structure):
         _fields_ = [
             ('flags', ctypes.c_int),
