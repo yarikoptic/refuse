@@ -501,6 +501,11 @@ else:
             ctypes.POINTER(fuse_file_info), ctypes.c_uint, ctypes.c_void_p)),
     ]
 
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# CLASS: FUSE operations
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 class fuse_operations(ctypes.Structure):
     _fields_ = [
         ('getattr', ctypes.CFUNCTYPE(
