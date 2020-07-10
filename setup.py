@@ -41,9 +41,11 @@ from setuptools import find_packages, setup
 _version_ = '0.0.4'
 
 # List all versions of Python which are supported
+python_minor_min = 5
+python_minor_max = 8
 confirmed_python_versions = [
-    ('Programming Language :: Python :: %s' % x)
-    for x in '3.5 3.6 3.7 3.8'.split(' ')
+    'Programming Language :: Python :: 3.{MINOR:d}'.format(MINOR = minor)
+    for minor in range(python_minor_min, python_minor_max + 1)
     ]
 
 # Fetch readme file
@@ -78,6 +80,7 @@ setup(
     license = 'ISC',
     keywords = ['fuse', 'libfuse'],
     include_package_data = True,
+    python_requires = '>=3.{MINOR:d}'.format(MINOR = python_minor_min),
     install_requires = [],
     extras_require = {'dev': development_deps_list},
     zip_safe = False,
