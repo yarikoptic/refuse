@@ -1,6 +1,6 @@
 # Changes
 
-## 0.0.4 (2019-XX-XX)
+## 0.0.4 (2020-07-10)
 
 - Added Python 3.8 support
 - Dropped Python 3.4 support
