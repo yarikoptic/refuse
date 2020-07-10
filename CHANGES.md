@@ -2,7 +2,7 @@
 
 ## 0.0.4 (2019-XX-XX)
 
-- (TBD)
+- Dropped Python 3.4 support
 
 ## 0.0.3 (2019-05-18)
 
