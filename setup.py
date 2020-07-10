@@ -54,7 +54,7 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md'), 'r') as f:
 development_deps_list = [
     'coverage',
     'pytest',
-    'python-language-server',
+    'python-language-server[all]',
     'setuptools',
     'Sphinx',
     'sphinx_rtd_theme',
