@@ -8,7 +8,7 @@ https://github.com/pleiszenburg/refuse
 
     src/refuse/__init__.py: Package root
 
-    Copyright (C) 2008-2019 refuse contributors
+    Copyright (C) 2008-2020 refuse contributors
 
 <LICENSE_BLOCK>
 The contents of this file are subject to the Internet Systems Consortium (ISC)
