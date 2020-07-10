@@ -8,7 +8,7 @@ https://github.com/pleiszenburg/refuse
 
     src/refuse/high.py: "High level" FUSE API
 
-    Copyright (C) 2008-2019 refuse contributors
+    Copyright (C) 2008-2020 refuse contributors
 
 <LICENSE_BLOCK>
 The contents of this file are subject to the Internet Systems Consortium (ISC)
@@ -35,7 +35,6 @@ import logging
 import os
 import warnings
 
-from ctypes.util import find_library
 from platform import machine, system
 from signal import signal, SIGINT, SIG_DFL, SIGTERM
 from stat import S_IFDIR
@@ -51,12 +50,31 @@ from functools import partial
 
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# HEADER: TODO organize ...
+# HEADER: "INIT"
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 log = logging.getLogger("fuse")
+
+# switch through operating systems and architectures
 _system = system()
 _machine = machine()
+
+# Simplify CYGWIN check
+if _system.startswith('CYGWIN'):
+    _system = 'CYGWIN'
+
+# HACK get reference on library
+from ._refactor import get_libfuse
+_libfuse = get_libfuse(_system)
+
+# Get MacFUSE status by looking at library
+if _system == 'Darwin' and hasattr(_libfuse, 'macfuse_version'):
+    _system = 'Darwin-MacFuse'
+
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# HEADER: TYPES
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 if _system == 'Windows':
     # NOTE:
@@ -74,7 +92,7 @@ if _system == 'Windows':
         c_win_long = ctypes.c_int32
         c_win_ulong = ctypes.c_uint32
 
-if _system == 'Windows' or _system.startswith('CYGWIN'):
+if _system == 'Windows' or _system == 'CYGWIN':
     class c_timespec(ctypes.Structure):
         _fields_ = [('tv_sec', c_win_long), ('tv_nsec', c_win_long)]
 elif _system == 'OpenBSD':
@@ -90,45 +108,6 @@ class c_utimbuf(ctypes.Structure):
 
 class c_stat(ctypes.Structure):
     pass    # Platform dependent
-
-_libfuse_path = os.environ.get('FUSE_LIBRARY_PATH')
-if not _libfuse_path:
-    if _system == 'Darwin':
-        # libfuse dependency
-        _libiconv = ctypes.CDLL(find_library('iconv'), ctypes.RTLD_GLOBAL)
-
-        _libfuse_path = (find_library('fuse4x') or find_library('osxfuse') or
-                         find_library('fuse'))
-    elif _system == 'Windows':
-        try:
-            import _winreg as reg
-        except ImportError:
-            import winreg as reg
-        def Reg32GetValue(rootkey, keyname, valname):
-            key, val = None, None
-            try:
-                key = reg.OpenKey(rootkey, keyname, 0, reg.KEY_READ | reg.KEY_WOW64_32KEY)
-                val = str(reg.QueryValueEx(key, valname)[0])
-            except WindowsError:
-                pass
-            finally:
-                if key is not None:
-                    reg.CloseKey(key)
-            return val
-        _libfuse_path = Reg32GetValue(reg.HKEY_LOCAL_MACHINE, r"SOFTWARE\WinFsp", r"InstallDir")
-        if _libfuse_path:
-            _libfuse_path += r"bin\winfsp-%s.dll" % ("x64" if sys.maxsize > 0xffffffff else "x86")
-    else:
-        _libfuse_path = find_library('fuse')
-
-if not _libfuse_path:
-    raise EnvironmentError('Unable to find libfuse')
-else:
-    _libfuse = ctypes.CDLL(_libfuse_path)
-
-if _system == 'Darwin' and hasattr(_libfuse, 'macfuse_version'):
-    _system = 'Darwin-MacFuse'
-
 
 if _system in ('Darwin', 'Darwin-MacFuse', 'FreeBSD'):
     ENOTSUP = 45
@@ -169,7 +148,7 @@ if _system in ('Darwin', 'Darwin-MacFuse', 'FreeBSD'):
             ('st_gen', ctypes.c_int32),
             ('st_lspare', ctypes.c_int32),
             ('st_qspare', ctypes.c_int64)]
-    else:
+    else: # MacFuse, FreeBSD
         c_stat._fields_ = [
             ('st_dev', c_dev_t),
             ('st_ino', ctypes.c_uint32),
@@ -325,7 +304,7 @@ elif _system == 'Linux':
             ('st_mtimespec', c_timespec),
             ('st_ctimespec', c_timespec),
             ('st_ino', ctypes.c_ulonglong)]
-elif _system == 'Windows' or _system.startswith('CYGWIN'):
+elif _system == 'Windows' or _system == 'CYGWIN':
     ENOTSUP = 129 if _system == 'Windows' else 134
     c_dev_t = ctypes.c_uint
     c_fsblkcnt_t = c_win_ulong
@@ -419,7 +398,7 @@ if _system == 'FreeBSD':
             ('f_bsize', ctypes.c_ulong),
             ('f_flag', ctypes.c_ulong),
             ('f_frsize', ctypes.c_ulong)]
-elif _system == 'Windows' or _system.startswith('CYGWIN'):
+elif _system == 'Windows' or _system == 'CYGWIN':
     class c_statvfs(ctypes.Structure):
         _fields_ = [
             ('f_bsize', c_win_ulong),
@@ -449,7 +428,7 @@ else:
             ('f_flag', ctypes.c_ulong),
             ('f_namemax', ctypes.c_ulong)]
 
-if _system == 'Windows' or _system.startswith('CYGWIN'):
+if _system == 'Windows' or _system == 'CYGWIN':
     class fuse_file_info(ctypes.Structure):
         _fields_ = [
             ('flags', ctypes.c_int),
@@ -509,8 +488,6 @@ else:
             ('pid', c_pid_t),
             ('private_data', ctypes.c_voidp)]
 
-_libfuse.fuse_get_context.restype = ctypes.POINTER(fuse_context)
-
 if _system == "OpenBSD":
     bmap_ret_t = ctypes.c_uint64
     extra_fields = []
@@ -525,6 +502,11 @@ else:
             ctypes.c_int, ctypes.c_char_p, ctypes.c_uint, ctypes.c_void_p,
             ctypes.POINTER(fuse_file_info), ctypes.c_uint, ctypes.c_void_p)),
     ]
+
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# CLASS: FUSE operations
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 class fuse_operations(ctypes.Structure):
     _fields_ = [
@@ -646,6 +628,18 @@ class fuse_operations(ctypes.Structure):
             ctypes.POINTER(bmap_ret_t))),
     ] + extra_fields
 
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# ROUTINES: bindings
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+_libfuse.fuse_get_context.restype = ctypes.POINTER(fuse_context)
+
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# ROUTINES: refuse
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 if _system == "OpenBSD":
     def fuse_main_real(argc, argv, fuse_ops_v, sizeof_fuse_ops, ctx_p):
         return _libfuse.fuse_main(argc, argv, fuse_ops_v, ctx_p)
@@ -737,6 +731,10 @@ def get_fuse_version():
 def get_fuse_libfile():
     return _libfuse._name
 
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# CLASS: FuseOSError
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 class FuseOSError(OSError):
     def __init__(self, errno):
@@ -851,8 +849,7 @@ class FUSE:
             else:
                 yield '%s=%s' % (key, value)
 
-    @staticmethod
-    def _wrapper(func, *args, **kwargs):
+    def _wrapper(self, func, *args, **kwargs):
         'Decorator for the methods that follow'
 
         try:
@@ -866,14 +863,14 @@ class FUSE:
                     return func(*args, **kwargs) or 0
 
                 except OSError as e:
-                    if e.errno > 0:
+                    if e.errno is not None and e.errno > 0:
                         log.debug(
                             "FUSE operation %s raised a %s, returning errno %s.",
                             func.__name__, type(e), e.errno, exc_info=True)
                         return -e.errno
                     else:
                         log.error(
-                            "FUSE operation %s raised an OSError with negative "
+                            "FUSE operation %s raised an OSError with an invalid "
                             "errno %s, returning errno.EINVAL.",
                             func.__name__, e.errno, exc_info=True)
                         return -errno.EINVAL

@@ -4,7 +4,7 @@
 #
 #   makefile: GNU makefile for project management
 #
-#   Copyright (C) 2008-2019 refuse contributors
+#   Copyright (C) 2008-2020 refuse contributors
 #
 # <LICENSE_BLOCK>
 # The contents of this file are subject to the Internet Systems Consortium (ISC)
@@ -58,3 +58,10 @@ install_link:
 
 # test:
 # 	pytest
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# ANALYSIS
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+dump_header:
+	python -m refuse._inventory
