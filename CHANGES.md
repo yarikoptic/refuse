@@ -4,6 +4,7 @@
 
 - Added Python 3.8 support
 - Dropped Python 3.4 support
+- FIX: Critical bug in error handling, see #26 and #27.
 
 ## 0.0.3 (2019-05-18)
 
