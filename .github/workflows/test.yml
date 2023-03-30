@@ -21,7 +21,10 @@ jobs:
         os:
           - windows-2019
           - ubuntu-latest
-          - macos-latest
+          # got "installer: Error - The FUSE for macOS installation package is not compatible with this version of macOS."
+          # from osxfuse
+          # - macos-latest
+          - macos-11
         python:
           - 3.7
           - 3.8
