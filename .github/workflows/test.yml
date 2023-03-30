@@ -42,12 +42,26 @@ jobs:
       run: |
         python -m pip install --upgrade pip wheel
         pip install ".[dev]"
-    
+
     - name: Install FUSE (Linux)
       if: startsWith(matrix.os, 'ubuntu')
       run: |
         sudo apt-get update -qq
         sudo eatmydata apt-get install -y fuse
+
+    - name: Install OSXFUSE (MacOS)
+      if: startsWith(matrix.os, 'macos')
+      run: |
+        brew update
+        brew install osxfuse
+
+    - name: Install WinFsp (Windows)
+      if: startsWith(matrix.os, 'windows')
+      shell: pwsh
+      run: |
+        $url = 'https://github.com/winfsp/winfsp/releases/download/v2.0/winfsp-2.0.23075.msi'
+        Invoke-WebRequest -Uri $url -OutFile 'winfsp.msi'
+        Start-Process msiexec.exe -ArgumentList '/i', 'winfsp.msi', '/quiet', '/norestart' -Wait
 
     - name: Run all tests
       run: |
