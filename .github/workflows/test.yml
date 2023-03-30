@@ -38,10 +38,16 @@ jobs:
       with:
         python-version: ${{ matrix.python }}
 
-    - name: Install dependencies
+    - name: Install Python dependencies and refuse itself
       run: |
         python -m pip install --upgrade pip wheel
         pip install ".[dev]"
+    
+    - name: Install FUSE (Linux)
+      if: startsWith(matrix.os, 'ubuntu')
+      run: |
+        sudo apt-get update -qq
+        sudo eatmydata apt-get install -y fuse
 
     - name: Run all tests
       run: |
