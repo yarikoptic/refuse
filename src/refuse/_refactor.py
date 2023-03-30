@@ -10,7 +10,7 @@ https://github.com/pleiszenburg/refuse
 
     THIS FILE IS TEMPORARY AND WILL BE REMOVED!
 
-    Copyright (C) 2008-2020 refuse contributors
+    Copyright (C) 2008-2023 refuse contributors
 
 <LICENSE_BLOCK>
 The contents of this file are subject to the Internet Systems Consortium (ISC)
@@ -32,6 +32,7 @@ specific language governing rights and limitations under the License.
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 import os
+import sys
 import ctypes
 from ctypes.util import find_library
 
