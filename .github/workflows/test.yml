@@ -47,12 +47,13 @@ jobs:
       run: |
         python -m pytest -s -v --cov=refuse --cov-report=xml --pyargs refuse
 
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v3
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        file: ./coverage.xml
-        flags: unittests
-        # name: codecov-umbrella
-        # yml: ./codecov.yml
-        fail_ci_if_error: false
+    # enable later
+    #- name: Upload coverage to Codecov
+    #  uses: codecov/codecov-action@v3
+    #  with:
+    #    token: ${{ secrets.CODECOV_TOKEN }}
+    #    file: ./coverage.xml
+    #    flags: unittests
+    #    # name: codecov-umbrella
+    #    # yml: ./codecov.yml
+    #    fail_ci_if_error: false
