@@ -5,8 +5,9 @@ on:
     branches:
       - master
   pull_request:
-  schedule:
-    - cron: '0 6 * * *'
+# re-enable whenever it works!
+#  schedule:
+#    - cron: '0 6 * * *'
 
 defaults:
   run:
