@@ -20,12 +20,15 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - windows-2019
+          # got "ERROR tests/test_low.py - OSError: Unable to find libfuse"
+          # - windows-2019
           - ubuntu-latest
           # got "installer: Error - The FUSE for macOS installation package is not compatible with this version of macOS."
           # from osxfuse
           # - macos-latest
-          - macos-11
+          # get "Error: The operation was canceled." after PASSED test, odd
+          # - macos-11
+
         python:
           - 3.7
           - 3.8
